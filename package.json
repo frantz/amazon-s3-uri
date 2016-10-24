@@ -2,14 +2,15 @@
   "name": "amazon-s3-uri",
   "version": "0.0.1",
   "description": "lib/amazon-s3-uri",
-  "main": "index.js",
+  "repository": "frantz/amazon-s3-uri",
+  "main": "lib/amazon-s3-uri.js",
   "scripts": {
     "pretest": "standard ./lib",
     "test": "nyc tape 'test/**/*.test.js'",
     "posttest": "nyc report --reporter=lcov"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["aws", "s3", "uri", "parser"],
+  "author": "Frantz Gauthier",
   "license": "ISC",
   "devDependencies": {
     "nyc": "^8.3.2",
