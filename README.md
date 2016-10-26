@@ -23,6 +23,6 @@ try {
   console.warn(`${uri} is not a valid S3 uri`) // should not happen because `uri` is valid in that example
 })
 ```
-# licence
+# license
 
 MIT

@@ -13,7 +13,7 @@
     "posttest": "nyc report --reporter=lcov"
   },
   "keywords": ["aws", "s3", "uri", "parser"],
-  "author": "Frantz Gauthier",
+  "author": "Frantz Gauthier <frantz@myentropy.org>",
   "license": "MIT",
   "devDependencies": {
     "nyc": "^8.3.2",
