@@ -4,6 +4,10 @@
   "description": "lib/amazon-s3-uri",
   "repository": "frantz/amazon-s3-uri",
   "main": "lib/amazon-s3-uri.js",
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "engineStrict": true,
   "scripts": {
     "pretest": "standard ./lib",
     "test": "nyc tape 'test/**/*.test.js'",
