@@ -15,7 +15,7 @@
   },
   "keywords": ["aws", "s3", "uri", "parser"],
   "author": "Frantz Gauthier",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "nyc": "^8.3.2",
     "standard": "^8.4.0",
