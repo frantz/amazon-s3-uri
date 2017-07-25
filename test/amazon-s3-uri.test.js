@@ -79,6 +79,12 @@ const testCases = {
     bucket: 'bucket2',
     key: 'key2'
   },
+  'https://s3-eu-west-1.amazonaws.com/bucket2/key with space': {
+    isPathStyle: true,
+    region: 'eu-west-1',
+    bucket: 'bucket2',
+    key: 'key with space'
+  },
   'https://bucket.s3.amazonaws.com': {
     isPathStyle: false,
     region: 'us-east-1',
