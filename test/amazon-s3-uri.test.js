@@ -49,6 +49,12 @@ const testCases = {
     bucket: 'bucket',
     key: 'key'
   },
+  's3://bucket/key with space': {
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key with space'
+  },
   'https://s3.amazonaws.com/': {
     isPathStyle: true,
     region: 'us-east-1',
@@ -72,6 +78,12 @@ const testCases = {
     region: 'us-east-1',
     bucket: 'bucket',
     key: 'key'
+  },
+  'https://s3.amazonaws.com/bucket/key with space': {
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key with space'
   },
   'https://s3-eu-west-1.amazonaws.com/bucket2/key2': {
     isPathStyle: true,
@@ -97,6 +109,12 @@ const testCases = {
     bucket: 'bucket',
     key: 'key'
   },
+  'https://bucket.s3.amazonaws.com/key with space': {
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key with space'
+  },
   'http://bucket.s3-aws-region.amazonaws.com': {
     isPathStyle: false,
     region: 'aws-region',
@@ -108,6 +126,12 @@ const testCases = {
     region: 'aws-region',
     bucket: 'bucket',
     key: 'key'
+  },
+  'http://bucket.s3-aws-region.amazonaws.com/key with space': {
+    isPathStyle: false,
+    region: 'aws-region',
+    bucket: 'bucket',
+    key: 'key with space'
   }
 }
 
