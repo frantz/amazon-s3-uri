@@ -12,7 +12,12 @@
     "test": "nyc tape 'test/**/*.test.js'",
     "posttest": "nyc report --reporter=lcov"
   },
-  "keywords": ["aws", "s3", "uri", "parser"],
+  "keywords": [
+    "aws",
+    "s3",
+    "uri",
+    "parser"
+  ],
   "author": "Frantz Gauthier <frantz@myentropy.org>",
   "license": "MIT",
   "devDependencies": {
