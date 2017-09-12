@@ -19,9 +19,9 @@ const AmazonS3URI = require('amazon-s3-uri')
 try {
   const uri = 'https://bucket.s3-aws-region.amazonaws.com/key'
   const { region, bucket, key } = AmazonS3URI(uri)
-} catch((err) => {
+} catch (err) {
   console.warn(`${uri} is not a valid S3 uri`) // should not happen because `uri` is valid in that example
-})
+}
 ```
 # license
 
