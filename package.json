@@ -10,8 +10,7 @@
   "scripts": {
     "pretest": "standard ./lib",
     "test": "nyc tape 'test/**/*.test.js'",
-    "posttest": "nyc report --reporter=lcov",
-    "posttest": "publish"
+    "posttest": "nyc report --reporter=lcov"
   },
   "keywords": [
     "aws",
@@ -23,7 +22,6 @@
   "license": "MIT",
   "devDependencies": {
     "nyc": "^8.3.2",
-    "publish": "0.6.0",
     "standard": "^8.4.0",
     "tape": "^4.6.2"
   }

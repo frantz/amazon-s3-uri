@@ -1,6 +1,6 @@
 # AmazonS3URI
 
-[![CircleCI](https://circleci.com/gh/frantz/amazon-s3-uri.svg?style=svg)](https://circleci.com/gh/frantz/amazon-s3-uri)
+[![Actions Status](https://github.com/frantz/amazon-s3-uri/workflows/test/badge.svg)](https://github.com/frantz/amazon-s3-uri/actions)
 
 A URI wrapper that can parse out information about an S3 URI
 
