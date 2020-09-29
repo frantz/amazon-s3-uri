@@ -21,7 +21,7 @@
   "author": "Frantz Gauthier <frantz@myentropy.org>",
   "license": "MIT",
   "devDependencies": {
-    "nyc": "^8.3.2",
+    "nyc": "^15.1.0",
     "standard": "^14.3.4",
     "tape": "^4.6.2"
   }
