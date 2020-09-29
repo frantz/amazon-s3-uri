@@ -1,7 +1,5 @@
 # AmazonS3URI
 
-[![CircleCI](https://circleci.com/gh/frantz/amazon-s3-uri.svg?style=svg)](https://circleci.com/gh/frantz/amazon-s3-uri)
-
 A URI wrapper that can parse out information about an S3 URI
 
 Shamelessly adapted from https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/AmazonS3URI.java
