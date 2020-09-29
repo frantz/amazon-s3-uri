@@ -1,5 +1,7 @@
 # AmazonS3URI
 
+[![Actions Status](https://github.com/frantz/amazon-s3-uri/workflows/test/badge.svg)](https://github.com/frantz/amazon-s3-uri/actions)
+
 A URI wrapper that can parse out information about an S3 URI
 
 Shamelessly adapted from https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/AmazonS3URI.java
