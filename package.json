@@ -22,7 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "nyc": "^8.3.2",
-    "standard": "^8.4.0",
+    "standard": "^14.3.4",
     "tape": "^4.6.2"
   }
 }
