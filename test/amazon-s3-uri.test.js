@@ -49,6 +49,12 @@ const testCases = {
     bucket: 'bucket',
     key: 'key'
   },
+  's3://bucket/key?foo=bar&bar=foo': {
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key'
+  },
   's3://bucket/key with space': {
     isPathStyle: false,
     region: 'us-east-1',
@@ -122,6 +128,12 @@ const testCases = {
     key: null
   },
   'http://bucket.s3-aws-region.amazonaws.com/key': {
+    isPathStyle: false,
+    region: 'aws-region',
+    bucket: 'bucket',
+    key: 'key'
+  },
+  'http://bucket.s3-aws-region.amazonaws.com/key?foo=bar&bar=foo': {
     isPathStyle: false,
     region: 'aws-region',
     bucket: 'bucket',
