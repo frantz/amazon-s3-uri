@@ -4,13 +4,15 @@
   "description": "A URI wrapper that can parse out information about an S3 URI",
   "repository": "frantz/amazon-s3-uri",
   "main": "lib/amazon-s3-uri.js",
+  "types": "index.d.ts",
   "engines": {
     "node": ">=8.10.0"
   },
   "scripts": {
     "pretest": "standard ./lib",
     "test": "nyc tape 'test/**/*.test.js'",
-    "posttest": "nyc report --reporter=lcov"
+    "posttest": "nyc report --reporter=lcov",
+    "generate-types": "tsc"
   },
   "keywords": [
     "aws",
@@ -21,8 +23,11 @@
   "author": "Frantz Gauthier <frantz@myentropy.org>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^14.11.2",
     "nyc": "^8.3.2",
     "standard": "^14.3.4",
-    "tape": "^4.6.2"
-  }
+    "tape": "^4.6.2",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {}
 }

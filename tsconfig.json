@@ -1,0 +1,9 @@
+{
+    "include": ["lib/amazon-s3-uri.js"],
+    "compilerOptions": {
+        "allowJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outFile": "index.d.ts"
+    }
+}
