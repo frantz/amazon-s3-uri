@@ -2,6 +2,7 @@
 
 const test = require('tape')
 const AmazonS3URI = require('../lib/amazon-s3-uri')
+const { assert } = require('sinon')
 
 test('invalid uri', (t) => {
   t.throws(() => {
@@ -31,129 +32,153 @@ test('it should export us-east-1 as DEFAULT_REGION', (t) => {
 })
 
 const testCases = {
-  's3://bucket': {
+  's3://bucket': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: null
-  },
-  's3://bucket/': {
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  's3://bucket/': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: null
-  },
-  's3://bucket/key': {
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  's3://bucket/key': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: 'key'
-  },
-  's3://bucket/key?foo=bar&bar=foo': {
+    key: 'key',
+    uri: { query: p ? {} : null }
+  }),
+  's3://bucket/key?foo=bar&bar=foo': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: 'key'
-  },
-  's3://bucket/key with space': {
+    key: 'key',
+    uri: { query: p ? { foo: 'bar', bar: 'foo' } : 'foo=bar&bar=foo' }
+  }),
+  's3://bucket/key with space': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: 'key with space'
-  },
-  'https://s3.amazonaws.com/': {
+    key: 'key with space',
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3.amazonaws.com/': (p) => ({
     isPathStyle: true,
     region: 'us-east-1',
     bucket: null,
-    key: null
-  },
-  'https://s3.amazonaws.com/bucket': {
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3.amazonaws.com/bucket': (p) => ({
     isPathStyle: true,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: null
-  },
-  'https://s3.amazonaws.com/bucket/': {
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3.amazonaws.com/bucket/': (p) => ({
     isPathStyle: true,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: null
-  },
-  'https://s3.amazonaws.com/bucket/key': {
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3.amazonaws.com/bucket/key': (p) => ({
     isPathStyle: true,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: 'key'
-  },
-  'https://s3.amazonaws.com/bucket/key with space': {
+    key: 'key',
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3.amazonaws.com/bucket/key with space': (p) => ({
     isPathStyle: true,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: 'key with space'
-  },
-  'https://s3-eu-west-1.amazonaws.com/bucket2/key2': {
+    key: 'key with space',
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3-eu-west-1.amazonaws.com/bucket2/key2': (p) => ({
     isPathStyle: true,
     region: 'eu-west-1',
     bucket: 'bucket2',
-    key: 'key2'
-  },
-  'https://s3-eu-west-1.amazonaws.com/bucket2/key with space': {
+    key: 'key2',
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3-eu-west-1.amazonaws.com/bucket2/key with space': (p) => ({
     isPathStyle: true,
     region: 'eu-west-1',
     bucket: 'bucket2',
-    key: 'key with space'
-  },
-  'https://bucket.s3.amazonaws.com': {
+    key: 'key with space',
+    uri: { query: p ? {} : null }
+  }),
+  'https://bucket.s3.amazonaws.com': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: null
-  },
-  'https://bucket.s3.amazonaws.com/key': {
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'https://bucket.s3.amazonaws.com/key': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: 'key'
-  },
-  'https://bucket.s3.amazonaws.com/key with space': {
+    key: 'key',
+    uri: { query: p ? {} : null }
+  }),
+  'https://bucket.s3.amazonaws.com/key with space': (p) => ({
     isPathStyle: false,
     region: 'us-east-1',
     bucket: 'bucket',
-    key: 'key with space'
-  },
-  'http://bucket.s3-aws-region.amazonaws.com': {
+    key: 'key with space',
+    uri: { query: p ? {} : null }
+  }),
+  'http://bucket.s3-aws-region.amazonaws.com': (p) => ({
     isPathStyle: false,
     region: 'aws-region',
     bucket: 'bucket',
-    key: null
-  },
-  'http://bucket.s3-aws-region.amazonaws.com/key': {
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'http://bucket.s3-aws-region.amazonaws.com/key': (p) => ({
     isPathStyle: false,
     region: 'aws-region',
     bucket: 'bucket',
-    key: 'key'
-  },
-  'http://bucket.s3-aws-region.amazonaws.com/key?foo=bar&bar=foo': {
+    key: 'key',
+    uri: { query: p ? {} : null }
+  }),
+  'http://bucket.s3-aws-region.amazonaws.com/key?foo=bar&bar=foo': (p) => ({
     isPathStyle: false,
     region: 'aws-region',
     bucket: 'bucket',
-    key: 'key'
-  },
-  'http://bucket.s3-aws-region.amazonaws.com/key with space': {
+    key: 'key',
+    uri: { query: p ? { foo: 'bar' } : 'foo=bar&bar=foo' }
+  }),
+  'http://bucket.s3-aws-region.amazonaws.com/key with space': (p) => ({
     isPathStyle: false,
     region: 'aws-region',
     bucket: 'bucket',
-    key: 'key with space'
-  }
+    key: 'key with space',
+    uri: { query: p ? {} : null }
+  })
 }
 
 Object.keys(testCases).forEach((uri) => {
   test(uri, (t) => {
+    // test both values for parseQueryString
+    for (const parseQueryString in [false, true]) {
+      const uriObj = AmazonS3URI(uri, parseQueryString)
+      const tc = testCases[uri](parseQueryString)
+      assert.match(uriObj, tc)
+    }
+    // test default when parseQueryString is not specify
     const uriObj = AmazonS3URI(uri)
-    const tc = testCases[uri]
-    Object.keys(tc).forEach((k) => {
-      t.equal(uriObj[k], tc[k], k)
-    })
+    const tc = testCases[uri](false)
+    assert.match(uriObj, tc)
     t.end()
   })
 })
