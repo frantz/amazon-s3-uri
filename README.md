@@ -1,6 +1,7 @@
 # AmazonS3URI
 
 [![Actions Status](https://github.com/frantz/amazon-s3-uri/workflows/test/badge.svg)](https://github.com/frantz/amazon-s3-uri/actions)
+[![codecov](https://codecov.io/gh/frantz/amazon-s3-uri/branch/master/graph/badge.svg)](https://codecov.io/gh/frantz/amazon-s3-uri)
 
 A URI wrapper that can parse out information about an S3 URI
 
