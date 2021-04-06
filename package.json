@@ -1,6 +1,6 @@
 {
   "name": "amazon-s3-uri",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A URI wrapper that can parse out information about an S3 URI",
   "repository": "frantz/amazon-s3-uri",
   "main": "lib/amazon-s3-uri.js",
