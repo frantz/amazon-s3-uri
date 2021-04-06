@@ -8,12 +8,15 @@
   "engines": {
     "node": ">=8.10.0"
   },
-  "files": ["index.d.ts"],
+  "files": [
+    "index.d.ts"
+  ],
   "scripts": {
     "pretest": "standard ./lib",
     "test": "nyc tape 'test/**/*.test.js'",
     "posttest": "nyc report --reporter=lcov",
-    "generate-types": "tsc"
+    "generate-types": "tsc",
+    "release": "release-it"
   },
   "keywords": [
     "aws",
@@ -26,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^14.11.2",
     "nyc": "^15.1.0",
+    "release-it": "^14.5.1",
     "sinon": "^10.0.0",
     "standard": "^14.3.4",
     "tape": "^5.0.1",
