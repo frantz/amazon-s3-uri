@@ -6,7 +6,7 @@
   "main": "lib/amazon-s3-uri.js",
   "types": "index.d.ts",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=20.0.0"
   },
   "files": [
     "index.d.ts"
