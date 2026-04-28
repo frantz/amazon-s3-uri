@@ -28,7 +28,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^14.11.2",
-    "nyc": "^15.1.0",
+    "nyc": "^18.0.0",
     "release-it": "^20.0.1",
     "sinon": "^21.1.2",
     "standard": "^14.3.4",
