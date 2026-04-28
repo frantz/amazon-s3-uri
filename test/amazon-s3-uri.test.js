@@ -164,6 +164,43 @@ const testCases = {
     bucket: 'bucket',
     key: 'key with space',
     uri: { query: p ? {} : null }
+  }),
+  // VPCE (VPC Interface Endpoint / PrivateLink) — virtual-hosted style: bucket in host
+  'https://bucket.vpce-0a1b2c3d4e5f6a7b8-a1b2c3d4.s3.us-east-1.vpce.amazonaws.com': (p) => ({
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'https://bucket.vpce-0a1b2c3d4e5f6a7b8-a1b2c3d4.s3.us-east-1.vpce.amazonaws.com/key': (p) => ({
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key',
+    uri: { query: p ? {} : null }
+  }),
+  // VPCE — path style: bucket in path
+  'https://vpce-0a1b2c3d4e5f6a7b8-a1b2c3d4.s3.us-east-1.vpce.amazonaws.com/': (p) => ({
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: null,
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'https://vpce-0a1b2c3d4e5f6a7b8-a1b2c3d4.s3.us-east-1.vpce.amazonaws.com/bucket': (p) => ({
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: null,
+    uri: { query: p ? {} : null }
+  }),
+  'https://vpce-0a1b2c3d4e5f6a7b8-a1b2c3d4.s3.us-east-1.vpce.amazonaws.com/bucket/key': (p) => ({
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key',
+    uri: { query: p ? {} : null }
   })
 }
 
