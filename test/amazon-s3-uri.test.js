@@ -170,7 +170,7 @@ const testCases = {
 Object.keys(testCases).forEach((uri) => {
   test(uri, (t) => {
     // test both values for parseQueryString
-    for (const parseQueryString in [false, true]) {
+    for (const parseQueryString of [false, true]) {
       const uriObj = AmazonS3URI(uri, parseQueryString)
       const tc = testCases[uri](parseQueryString)
       assert.match(uriObj, tc)
