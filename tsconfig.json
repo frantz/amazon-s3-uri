@@ -4,6 +4,10 @@
         "allowJs": true,
         "declaration": true,
         "emitDeclarationOnly": true,
-        "outFile": "index.d.ts"
+        "outFile": "index.d.ts",
+        "rootDir": "./lib",
+        "ignoreDeprecations": "6.0",
+        "types": ["node"],
+        "skipLibCheck": true
     }
 }
