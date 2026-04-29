@@ -128,6 +128,7 @@ const testCases = {
     region: 'us-east-1',
     bucket: 'bucket',
     key: 'key',
+    versionId: null,
     uri: { query: p ? {} : null }
   }),
   'https://bucket.s3.amazonaws.com/key with space': (p) => ({
@@ -201,6 +202,31 @@ const testCases = {
     bucket: 'bucket',
     key: 'key',
     uri: { query: p ? {} : null }
+  }),
+  // versionId support
+  'https://bucket.s3-eu-west-1.amazonaws.com/key?versionId=abc123': (p) => ({
+    isPathStyle: false,
+    region: 'eu-west-1',
+    bucket: 'bucket',
+    key: 'key',
+    versionId: 'abc123',
+    uri: { query: p ? { versionId: 'abc123' } : 'versionId=abc123' }
+  }),
+  'https://s3.amazonaws.com/bucket/key?versionId=v2&foo=bar': (p) => ({
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key',
+    versionId: 'v2',
+    uri: { query: p ? { versionId: 'v2', foo: 'bar' } : 'versionId=v2&foo=bar' }
+  }),
+  's3://bucket/key?versionId=xyz': (p) => ({
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key',
+    versionId: 'xyz',
+    uri: { query: p ? { versionId: 'xyz' } : 'versionId=xyz' }
   })
 }
 
