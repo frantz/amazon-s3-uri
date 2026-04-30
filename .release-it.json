@@ -1,5 +1,6 @@
 {
   "github": {
-    "release": true
+    "release": true,
+    "releaseNotes": "git log --pretty=format:'* %s (%h)' $(git describe --tags --abbrev=0 HEAD^)...HEAD"
   }
 }
