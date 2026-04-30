@@ -129,6 +129,7 @@ const testCases = {
     bucket: 'bucket',
     key: 'key',
     versionId: null,
+    isDualStack: false,
     uri: { query: p ? {} : null }
   }),
   'https://bucket.s3.amazonaws.com/key with space': (p) => ({
@@ -201,6 +202,47 @@ const testCases = {
     region: 'us-east-1',
     bucket: 'bucket',
     key: 'key',
+    uri: { query: p ? {} : null }
+  }),
+  // dualstack endpoints
+  'https://s3.dualstack.us-east-1.amazonaws.com/bucket': (p) => ({
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: null,
+    isDualStack: true,
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3.dualstack.us-east-1.amazonaws.com/bucket/key': (p) => ({
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key',
+    isDualStack: true,
+    uri: { query: p ? {} : null }
+  }),
+  'https://bucket.s3.dualstack.us-east-1.amazonaws.com': (p) => ({
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: null,
+    isDualStack: true,
+    uri: { query: p ? {} : null }
+  }),
+  'https://bucket.s3.dualstack.us-east-1.amazonaws.com/key': (p) => ({
+    isPathStyle: false,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key',
+    isDualStack: true,
+    uri: { query: p ? {} : null }
+  }),
+  'https://s3.dualstack.eu-west-1.amazonaws.com/bucket/key': (p) => ({
+    isPathStyle: true,
+    region: 'eu-west-1',
+    bucket: 'bucket',
+    key: 'key',
+    isDualStack: true,
     uri: { query: p ? {} : null }
   }),
   // versionId support
