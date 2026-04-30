@@ -24,15 +24,17 @@ npm run generate-types
 
 This is a single-file Node.js library (`lib/amazon-s3-uri.js`) with no runtime dependencies.
 
-**`AmazonS3URI(uri, parseQueryString?)`** — works both as a constructor (`new AmazonS3URI(...)`) and as a plain function call (returns a new instance via `new.target` detection). It parses an S3 URI into four properties:
+**`AmazonS3URI(uri, parseQueryString?)`** — works both as a constructor (`new AmazonS3URI(...)`) and as a plain function call (returns a new instance via `new.target` detection). It parses an S3 URI into these properties:
 
 - `bucket` — bucket name, or `null`
 - `key` — object key, or `null`
 - `region` — AWS region string, defaults to `us-east-1`
 - `isPathStyle` — `true` when bucket is in the path rather than the hostname
+- `isDualStack` — `true` when the hostname contains `.dualstack.`
+- `versionId` — value of the `versionId` query parameter, or `null`
 - `uri` — the raw `url.parse()` result (query is a string unless `parseQueryString` is `true`)
 
-**URL format detection** uses `ENDPOINT_PATTERN` (`/^(.+\.)?s3[.-]([a-z0-9-]+)\./`) against the hostname to distinguish:
+**URL format detection** uses `ENDPOINT_PATTERN` (`/^(.+\.)?s3[.-](?:dualstack\.)?([a-z0-9-]+)\./`) against the hostname to distinguish:
 
 1. `s3://` protocol — bucket is the host, key is the path
 2. Path-style HTTP(S) — no host prefix before `s3`, or a VPCE path-style host (`vpce-<id>-<suffix>.s3…`) — bucket and key come from the path
