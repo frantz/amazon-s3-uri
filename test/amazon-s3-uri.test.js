@@ -269,6 +269,14 @@ const testCases = {
     key: 'key',
     versionId: 'xyz',
     uri: { query: p ? { versionId: 'xyz' } : 'versionId=xyz' }
+  }),
+  'https://s3.amazonaws.com/bucket/key?versionId=': (p) => ({
+    isPathStyle: true,
+    region: 'us-east-1',
+    bucket: 'bucket',
+    key: 'key',
+    versionId: '',
+    uri: { query: p ? { versionId: '' } : 'versionId=' }
   })
 }
 
