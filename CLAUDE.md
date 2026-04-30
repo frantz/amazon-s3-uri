@@ -32,7 +32,7 @@ This is a single-file Node.js library (`lib/amazon-s3-uri.js`) with no runtime d
 - `isPathStyle` — `true` when bucket is in the path rather than the hostname
 - `isDualStack` — `true` when the hostname contains `.dualstack.`
 - `versionId` — value of the `versionId` query parameter, or `null`
-- `uri` — the raw `url.parse()` result (query is a string unless `parseQueryString` is `true`)
+- `uri` — parsed URL components object (`protocol`, `host`, `hostname`, `port`, `pathname`, `search`, `query`, `path`, `hash`, `href`, `auth`, `slashes`); `query` is an object when `parseQueryString` is `true`, a raw string otherwise
 
 **URL format detection** uses `ENDPOINT_PATTERN` (`/^(.+\.)?s3[.-](?:dualstack\.)?([a-z0-9-]+)\./`) against the hostname to distinguish:
 

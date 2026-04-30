@@ -50,7 +50,7 @@ Throws `TypeError` for non-string input and `Error` for URIs that cannot be pars
 | `isPathStyle` | `boolean`        | `true` when the bucket is in the path rather than the hostname |
 | `isDualStack` | `boolean`        | `true` when the URI uses an S3 dualstack endpoint |
 | `versionId`   | `string \| null` | Value of the `versionId` query parameter, or `null` |
-| `uri`         | `Url`            | Raw `url.parse()` result |
+| `uri`         | `object`         | Parsed URL components (`protocol`, `host`, `pathname`, `search`, `query`, `href`, …) |
 
 ## Supported URI formats
 
