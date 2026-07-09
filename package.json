@@ -27,7 +27,7 @@
   "author": "Frantz Gauthier <frantz@myentropy.org>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^25.6.0",
+    "@types/node": "^26.1.1",
     "nyc": "^18.0.0",
     "release-it": "^20.0.1",
     "sinon": "^22.0.0",
