@@ -36,6 +36,6 @@
     "sinon": "^22.0.0",
     "standard": "^17.1.2",
     "tape": "^5.9.0",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }
